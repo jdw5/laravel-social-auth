@@ -9,6 +9,12 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['social', 'guest']);
+    }
+    
     public function redirect($service, Request $request)
     {
         // $service = 'github';
