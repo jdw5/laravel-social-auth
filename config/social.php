@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\Social\SocialAccountCreated;
+
 return [
 
     'services' => [
@@ -7,5 +9,14 @@ return [
         'github' => [
             'name' => 'GitHub',
         ],
-    ]
+
+    ],
+
+    'events' => [
+        'github' => [
+            'created' => SocialAccountCreated::class
+        ],
+    ],
+
+    //
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Events\Social;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -12,16 +13,20 @@ use Illuminate\Queue\SerializesModels;
 
 class SocialAccountCreated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, 
+        InteractsWithSockets, 
+        SerializesModels;
+    
+        public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        dd('Works');
+        $this->user = $user;
     }
 
     /**
