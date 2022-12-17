@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/login/github', [LoginController::class, 'redirectToGithub']);
+Route::get('/login/github/callback', [LoginController::class, 'githubCallback']);
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
