@@ -26,8 +26,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login/github', [LoginController::class, 'redirectToGithub']);
-Route::get('/login/github/callback', [LoginController::class, 'githubCallback']);
+Route::get('/login/{service}', [LoginController::class, 'redirect']);
+Route::get('/login/{service}/callback', [LoginController::class, 'callback']);
 
 
 Route::get('/dashboard', function () {
